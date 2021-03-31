@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
     def create
 
-        user = User.new(params.require(:user).permit(:name, :email))
+        user = User.new(params.require(:user).permit(:username))
         # replace the `user_attributes_here` with the actual attribute keys
         if user.save
             render json: user
@@ -23,9 +23,9 @@ class UsersController < ApplicationController
     end
 
     def update
-        users = User.find(params[:id])
-        if users.update(user_params)
-           redirect_to user_url(users)
+        user = User.find(params[:id])
+        if user.update(user_params)
+           redirect_to user_url(user)
         else
            render json: users.errors.full_messages, status: :unprocessable_entity # rails method, same as 422
         end
@@ -38,9 +38,10 @@ class UsersController < ApplicationController
         redirect_to users_url
     end
 
+    private
 
     def user_params
         # debugger
-        params.require(:user).permit(:name, :email)
+        params.require(:user).permit(:username)
     end
 end

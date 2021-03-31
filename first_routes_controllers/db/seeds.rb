@@ -12,27 +12,22 @@ ActiveRecord::Base.transaction do
     ArtworkShare.delete_all
 
     daniel = User.create(
-        id: 1,
         username: "danielwu1"        
     )
 
     jae = User.create(
-        id: 2,
         username: "jaewooklim"
     )
 
     ara = User.create(
-        id: 3,
         username: "aracho"
     )
 
     daniel_g = User.create(
-        id: 4,
         username: "danielgorter"
     )
 
     megan = User.create(
-        id: 5,
         username: "meganmcnulty"
     )
 
@@ -60,27 +55,27 @@ ActiveRecord::Base.transaction do
         artist_id: 2
     )
 
-    ArtworkShares.create(
+    ArtworkShare.create(
         artwork_id: 1,
         viewer_id: 3
     )
 
-    ArtworkShares.create(
+    ArtworkShare.create(
         artwork_id: 1,
         viewer_id: 4
     )
 
-    ArtworkShares.create(
+    ArtworkShare.create(
         artwork_id: 2,
         viewer_id: 5
     )
 
-    ArtworkShares.create(
+    ArtworkShare.create(
         artwork_id: 3,
         viewer_id: 3
     )
 
-    ArtworkShares.create(
+    ArtworkShare.create(
         artwork_id: 4,
         viewer_id: 4
     )
