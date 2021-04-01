@@ -27,7 +27,7 @@ class UsersController < ApplicationController
         if user.update(user_params)
            redirect_to user_url(user)
         else
-           render json: users.errors.full_messages, status: :unprocessable_entity # rails method, same as 422
+           render json: user.errors.full_messages, status: :unprocessable_entity # rails method, same as 422
         end
     end
 

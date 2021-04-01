@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   resources :artworks, only: [:create, :destroy, :show, :update]
 
   resources :artwork_shares, only: [:destroy, :create]
+
+  resources :comments, only: [:index]
   # get '/users', to: 'users#index'
   # post '/users', to: 'users#create'#, as: 'users'
   

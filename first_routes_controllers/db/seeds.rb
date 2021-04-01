@@ -80,6 +80,51 @@ ActiveRecord::Base.transaction do
         viewer_id: 4
     )
 
+    Comment.create(
+        artwork_id: 1,
+        commenter_id: 1,
+        body: "this is mine"
+    )
+
+    Comment.create(
+        artwork_id: 1,
+        commenter_id: 2,
+        body: "very nice"
+    )
+
+    Comment.create(
+        artwork_id: 1,
+        commenter_id: 2,
+        body: "very nice"
+    )
+
+    Comment.create(
+        artwork_id: 1,
+        commenter_id: 1,
+        body: "thank you"
+    )
+
+    Comment.create(
+        artwork_id: 2,
+        commenter_id: 3,
+        body: "10/10"
+    )
+
+    Comment.create(
+        artwork_id: 2,
+        commenter_id: 4,
+        body: "I like it"
+    )
+    
+    Comment.create(
+        artwork_id: 3,
+        commenter_id: 5,
+        body: "well done"
+    )
+
+
+
+
 end
 
 
