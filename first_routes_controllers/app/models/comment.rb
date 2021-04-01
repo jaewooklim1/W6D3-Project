@@ -6,6 +6,12 @@ class Comment < ApplicationRecord
 
     belongs_to :artwork,
         class_name: :Artwork,
-        foreign_key: :artwork_id    
+        foreign_key: :artwork_id 
+
+    has_many :likes,
+        foreign_key: :likeable_id,
+        class_name: :Like,
+        as: :likeable
+        
 
 end
