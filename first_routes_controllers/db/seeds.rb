@@ -10,6 +10,7 @@ ActiveRecord::Base.transaction do
     Artwork.delete_all
     User.delete_all
     ArtworkShare.delete_all
+    Comment.delete_all
 
     daniel = User.create(
         username: "danielwu1"        

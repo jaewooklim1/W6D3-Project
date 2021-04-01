@@ -23,6 +23,7 @@ class User < ApplicationRecord
 
     has_many :artworks_comments,
         through: :artworks,
-        source: :comments
+        source: :comments,
+        dependent: :destroy 
 
 end
