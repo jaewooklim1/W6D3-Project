@@ -16,6 +16,8 @@
 #            artwork_shares POST   /artwork_shares(.:format)                                                                artwork_shares#create
 #             artwork_share DELETE /artwork_shares/:id(.:format)                                                            artwork_shares#destroy
 #                  comments GET    /comments(.:format)                                                                      comments#index
+#                           POST   /comments(.:format)                                                                      comments#create
+#                   comment DELETE /comments/:id(.:format)                                                                  comments#destroy
 #        rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
 # rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
 #        rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
@@ -29,11 +31,17 @@ Rails.application.routes.draw do
     resources :artworks, only: [:index]
   end
 
-  resources :artworks, only: [:create, :destroy, :show, :update]
+  resources :artworks, only: [:create, :destroy, :show, :update] do 
+    resources :likes, only: [:index]
+  end
 
   resources :artwork_shares, only: [:destroy, :create]
 
-  resources :comments, only: [:index, :create, :destroy]
+  resources :comments, only: [:index, :create, :destroy] do 
+    resources :likes, only: [:index]
+  end
+
+  resources :likes, only: [:create, :destroy]
   # get '/users', to: 'users#index'
   # post '/users', to: 'users#create'#, as: 'users'
   
