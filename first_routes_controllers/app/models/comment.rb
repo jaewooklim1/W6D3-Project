@@ -2,7 +2,7 @@ class Comment < ApplicationRecord
 
     belongs_to :commenter,
         class_name: :User,
-        foreign_key: :commenter_id
+        foreign_key: :commenter_id      
 
     belongs_to :artwork,
         class_name: :Artwork,
@@ -13,5 +13,9 @@ class Comment < ApplicationRecord
         class_name: :Like,
         as: :likeable
         
+    has_many :likers,
+        through: :likes,
+        source: :user
 
+        
 end

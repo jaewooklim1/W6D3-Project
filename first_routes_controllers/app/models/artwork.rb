@@ -5,7 +5,7 @@ class Artwork < ApplicationRecord
     belongs_to :artist,
         primary_key: :id,
         foreign_key: :artist_id,
-        class_name: :User  
+        class_name: :User       
 
     has_many :artwork_shares,
         class_name: :ArtworkShare,
@@ -28,6 +28,11 @@ class Artwork < ApplicationRecord
         foreign_key: :likeable_id,
         class_name: :Like,
         as: :likeable
+
+    has_many :likers,
+        through: :likes,
+        source: :user
+    
         
 
 end

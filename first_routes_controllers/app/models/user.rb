@@ -13,8 +13,8 @@ class User < ApplicationRecord
         dependent: :destroy
 
     has_many :shared_artworks,
-        through: :artworks,
-        source: :artwork_shares
+        through: :views,
+        source: :artwork
 
     has_many :comments,
         foreign_key: :commenter_id,
@@ -25,5 +25,18 @@ class User < ApplicationRecord
         through: :artworks,
         source: :comments,
         dependent: :destroy 
+
+    has_many :liked_comments,
+        through: :comments,
+        source: :likes,
+        dependent: :destroy 
+
+    has_many :liked_artworks,
+        through: :artworks,
+        source: :likes, 
+        dependent: :destroy
+
+    
+    
 
 end
